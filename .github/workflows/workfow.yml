@@ -13,14 +13,14 @@ jobs:
     steps:
       - name: checkout the repo
         uses: actions/checkou@v3
-      - name: Install dependencies
+      - name: install dependencies
         run: |
           pythom -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Lint with flake8
+      - name: lint with flake8
         run: |
           flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
           flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
-      - name: Test code coverage with nose
+      - name: test code coverage with nose
         run: |
           nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
