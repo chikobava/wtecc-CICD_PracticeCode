@@ -10,7 +10,8 @@ kubectl apply -f tasks.yaml
 Run the pipeline:
 
 ```shell
-tkn pipeline start hello-pipeline \
-    --showlog  \
-    -p message="Hello Tekton!"
+tkn pipeline start cd-pipeline \
+    --showlog \
+    -p repo-url="https://github.com/ibm-developer-skills-network/wtecc-CICD_PracticeCode.git" \
+    -p branch="main"
 ```
