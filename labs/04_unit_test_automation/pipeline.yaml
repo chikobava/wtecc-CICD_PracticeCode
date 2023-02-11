@@ -10,7 +10,16 @@ spec:
     - name: branch
       default: "master"
   tasks:
+    - name: init
+      workspaces:
+        - name: source
+          workspace: pipeline-workspace
+      taskRef:
+        name: cleanup
     - name: clone
+      workspaces:
+        - name: source
+          workspace: pipeline-workspace
       taskRef:
         name: checkout
       params:
