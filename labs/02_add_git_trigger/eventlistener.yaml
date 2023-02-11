@@ -6,6 +6,6 @@ spec:
   serviceAccountName: pipeline
   triggers:
     - bindings:
-        - ref: cd-binding
-        template:
-          ref: cd-template
+      - ref: cd-binding
+      template:
+        ref: cd-template
