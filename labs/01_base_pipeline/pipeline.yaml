@@ -1,16 +1,19 @@
+---
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
-metadata:  
-  name: hello-pipeline
+metadata:
+  name: cd-pipeline
 spec:
   params:
-    - name: message
+    - name: repo-url
+    - name: branch
+      default: "master"
   tasks:
-    - name: hello
-      taskRef: 
-        name: echo
+    - name: clone
+      taskRef:
+        name: checkout
       params:
-        - name: message
-          value: "$(params.message)"
-
-        
+      - name: repo-url
+        value: "$(params.repo-url)"
+      - name: branch
+        value: "$(params.branch)"
