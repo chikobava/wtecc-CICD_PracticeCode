@@ -10,7 +10,6 @@ spec:
     - name: branch
       default: "master"
   tasks:
-
     - name: init
       workspaces:
         - name: source
@@ -40,7 +39,7 @@ spec:
         name: flake8
       params:
         - name: image
-          value: "alpine/flake8"
+          value: "python:3.9-slim"
         - name: args
           value:
             [
